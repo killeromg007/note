@@ -18,10 +18,6 @@ const Note = sequelize.define('Note', {
   createdAt: {
     type: DataTypes.DATE,
     defaultValue: Sequelize.NOW
-  },
-  adminToken: {
-    type: DataTypes.STRING,
-    defaultValue: () => Math.random().toString(36).substring(2, 15)
   }
 });
 
@@ -30,7 +26,6 @@ sequelize.sync()
   .then(() => console.log('Database synced'))
   .catch(err => console.error('Error syncing database:', err));
 
-// Add this after sequelize initialization
 sequelize
   .authenticate()
   .then(() => {
