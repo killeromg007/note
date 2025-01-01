@@ -6,6 +6,8 @@
     <title>WebNotes Admin Dashboard</title>
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/admin/dashboard.css">
+    <!-- Add TinyMCE for rich text editing -->
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <body>
     <div class="container">
@@ -13,8 +15,38 @@
             <h1>WebNotes Admin Dashboard</h1>
             <button onclick="logout()" class="logout-btn">Logout</button>
         </header>
-        <div id="notesList" class="notes-list admin-notes">
-            <!-- Notes will be displayed here -->
+        
+        <!-- Add database editor section -->
+        <div class="editor-section">
+            <h2>Database Editor</h2>
+            <div class="editor-controls">
+                <button onclick="refreshNotes()" class="refresh-btn">🔄 Refresh</button>
+            </div>
+            <div class="notes-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Content</th>
+                            <th>Created At</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="notesTableBody">
+                        <!-- Notes will be displayed here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Edit Modal -->
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeEditModal()">&times;</span>
+                <h2>Edit Note</h2>
+                <textarea id="noteEditor"></textarea>
+                <button onclick="saveEdit()" class="save-btn">Save Changes</button>
+            </div>
         </div>
     </div>
     <script src="/admin/dashboard.js"></script>

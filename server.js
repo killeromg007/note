@@ -107,6 +107,21 @@ app.delete('/api/admin/notes/:id', authenticateAdmin, async (req, res) => {
     }
 });
 
+app.put('/api/admin/notes/:id', authenticateAdmin, async (req, res) => {
+    try {
+        const note = await Note.findByPk(req.params.id);
+        if (!note) {
+            return res.status(404).json({ message: 'Note not found' });
+        }
+
+        note.content = req.body.content;
+        await note.save();
+        res.json(note);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 }); 
