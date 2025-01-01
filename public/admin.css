@@ -1,0 +1,41 @@
+.admin-notes .note {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.note-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn, .delete-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.edit-mode textarea {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.edit-mode .save-btn {
+    background-color: #2196F3;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+} 
